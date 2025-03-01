@@ -26,7 +26,7 @@ sleep 5
 
 cd /home/vagrant/syncFold
 rm -rf node_modules package-lock.json 
-npm config set bin-links false
+npm config set bin-links false #los symlinks no funcionan bien
 npm i express consul
 
 sudo nohup node index_s1.js 3000 &

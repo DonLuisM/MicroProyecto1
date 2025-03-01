@@ -1,12 +1,12 @@
 #!/bin/bash
 
-echo "🔄 Actualizando paquetes..."
+echo "Actualizando paquetes..."
 sudo apt update && sudo apt -y install haproxy
 
-echo "✅ Habilitando HAProxy..."
+echo "Habilitando HAProxy..."
 sudo systemctl enable haproxy
 
-echo "⚙️ Configurando HAProxy..."
+echo "Configurando HAProxy..."
 sudo tee -a /etc/haproxy/haproxy.cfg <<EOF
 frontend http_front
     bind *:80
@@ -37,7 +37,7 @@ mkdir /etc/haproxy/errors
 echo "Creando archivo de errores personalizada..."
 touch /etc/haproxy/errors/503.http
 
-echo "📄 Creando página personalizada para error 503..."
+echo "Creando página personalizada para error 503..."
 sudo tee -a /etc/haproxy/errors/503.http <<EOF
 HTTP/1.0 503 Service Unavailable
 Cache-Control: no-cache
@@ -162,10 +162,10 @@ Content-Type: text/html
 </html>
 EOF
 
-echo "🔄 Reiniciando HAProxy para aplicar cambios..."
+echo "Reiniciando HAProxy para aplicar cambios..."
 systemctl restart haproxy
 
-echo "✅ Configuración de HAProxy completada con éxito."
+echo "Configuración de HAProxy completada con éxito."
 
 
 
